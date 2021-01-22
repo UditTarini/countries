@@ -76,7 +76,7 @@ const Main = () => {
       const sorted = [...data].sort(function (a, b) {
         return a.population - b.population;
       });
-      console.log(sorted);
+
       setData(sorted);
     } else if (sortby === "pop-descending") {
       const sorted = [...data].sort(function (a, b) {
