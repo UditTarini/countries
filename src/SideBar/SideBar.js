@@ -68,79 +68,79 @@ const SideBar = ({sort}) => {
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("eu")}
                 >
                   EU (European Union)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("efta")}
                 >
                   EFTA (European Free Trade Association)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("caricom")}
                 >
                   CARICOM (Caribbean Community)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("pa")}
                 >
                   PA (Pacific Alliance)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("au")}
                 >
                   AU (African Union)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("usan")}
                 >
                   USAN (Union of South American Nations)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("eeu")}
                 >
                   EEU (Eurasian Economic Union)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("al")}
                 >
                   AL (Arab League)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("asean")}
                 >
                   ASEAN (Association of Southeast Asian Nations)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("cais")}
                 >
                   CAIS (Central American Integration System)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("cefta")}
                 >
                   CEFTA (Central European Free Trade Agreement)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("nafta")}
                 >
                   NAFTA (North American Free Trade Agreement)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("saarc")}
                 >
                   SAARC (South Asian Association for Regional Cooperation)
                 </li>

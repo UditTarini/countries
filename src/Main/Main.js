@@ -9,40 +9,45 @@ const Main = () => {
   const [loading, setLoading] = useState(true);
   const [sort, setSort] = useState(false);
   const [searchText, setsearchText] = useState("");
-  const [errorMsg, seterrorMsg] = useState("loading");
+  const [error, setError] = useState({status: false, msg: ""});
+
   useEffect(() => {
     getAllCountries();
-    setLoading(false);
   }, []);
 
   const getAllCountries = () => {
+    setLoading(true);
     getData("all").then((response) => setData(response));
+    setLoading(false);
+    setError({...error, status: false, msg: ""});
   };
 
   const handleChangeSearch = (event) => {
     setsearchText(event.target.value);
   };
   const handleSearch = () => {
+    callApi(`name/${searchText}`);
+  };
+
+  const callApi = (urlToFetch) => {
     setLoading(true);
 
-    getData(`name/${searchText}`).then((response) => {
+    getData(urlToFetch).then((response) => {
       if (response.error) {
-        setLoading(true);
         getAllCountries();
         setLoading(false);
       }
       if (response.status === 404) {
-        setLoading(true);
-        seterrorMsg(response.message);
+        setError({...error, status: true, msg: response.message});
       } else {
         setData(response);
         setLoading(false);
       }
     });
   };
-
   const handleSort = (sortby) => {
     if (sortby === "accending") {
+      console.log("HIII");
       const sorted = [...data].sort(function (a, b) {
         if (a.name > b.name) {
           return 1;
@@ -54,8 +59,7 @@ const Main = () => {
         return 0;
       });
       setData(sorted);
-    }
-    if (sortby === "deccending") {
+    } else if (sortby === "deccending") {
       const sorted = [...data].sort(function (a, b) {
         if (a.name > b.name) {
           return -1;
@@ -67,9 +71,14 @@ const Main = () => {
         return 0;
       });
       setData(sorted);
+    } else {
+      callApi(`regionalbloc/${sortby}`);
     }
   };
-
+  const routeChange = (redirectUrl) => {
+    let path = redirectUrl;
+    history.push(path);
+  };
   return (
     <>
       <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -92,8 +101,12 @@ const Main = () => {
             <SideBar sort={handleSort} />
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
               <div className="d-flex justify-content-center flex-wrap  align-items-center pt-3 pb-2 mb-3 ">
-                {loading ? (
-                  <h1>{errorMsg}</h1>
+                {loading && error.status ? (
+                  error.status ? (
+                    <h1>{error.msg}</h1>
+                  ) : (
+                    <h1>Loading...</h1>
+                  )
                 ) : (
                   data.error === undefined &&
                   data.map((item, index) => {
