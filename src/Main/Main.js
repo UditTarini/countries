@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
+
 import SideBar from "../SideBar/SideBar";
 import "./Main.css";
 import CountryCard from "../CountryCard/CountryCard";
 import {getData} from "./helper";
+import {Link, Redirect} from "react-router-dom";
 const Main = () => {
   const [data, setData] = useState([]);
 
@@ -46,8 +48,7 @@ const Main = () => {
     });
   };
   const handleSort = (sortby) => {
-    if (sortby === "accending") {
-      console.log("HIII");
+    if (sortby === "ascending") {
       const sorted = [...data].sort(function (a, b) {
         if (a.name > b.name) {
           return 1;
@@ -59,7 +60,7 @@ const Main = () => {
         return 0;
       });
       setData(sorted);
-    } else if (sortby === "deccending") {
+    } else if (sortby === "descending") {
       const sorted = [...data].sort(function (a, b) {
         if (a.name > b.name) {
           return -1;
@@ -69,16 +70,34 @@ const Main = () => {
         }
 
         return 0;
+      });
+      setData(sorted);
+    } else if (sortby === "pop-ascending") {
+      const sorted = [...data].sort(function (a, b) {
+        return a.population - b.population;
+      });
+      console.log(sorted);
+      setData(sorted);
+    } else if (sortby === "pop-descending") {
+      const sorted = [...data].sort(function (a, b) {
+        return b.population - a.population;
+      });
+      setData(sorted);
+    } else if (sortby === "area-ascending") {
+      const sorted = [...data].sort(function (a, b) {
+        return a.area - b.area;
+      });
+      setData(sorted);
+    } else if (sortby === "area-descending") {
+      const sorted = [...data].sort(function (a, b) {
+        return b.area - a.area;
       });
       setData(sorted);
     } else {
       callApi(`regionalbloc/${sortby}`);
     }
   };
-  const routeChange = (redirectUrl) => {
-    let path = redirectUrl;
-    history.push(path);
-  };
+
   return (
     <>
       <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -110,7 +129,15 @@ const Main = () => {
                 ) : (
                   data.error === undefined &&
                   data.map((item, index) => {
-                    return <CountryCard countryData={item} />;
+                    return (
+                      <Link
+                        to={{
+                          pathname: `/country/${item.name}`,
+                        }}
+                      >
+                        <CountryCard countryData={item} />
+                      </Link>
+                    );
                   })
                 )}
               </div>

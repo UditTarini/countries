@@ -2,7 +2,7 @@ import React from "react";
 import "./CountryCard.css";
 const CountryCard = ({countryData}) => {
   return (
-    <div className="card course-card">
+    <div className="card country-card">
       <div class="card-item">
         <div class="card-image">
           <img src={countryData.flag} alt="" />

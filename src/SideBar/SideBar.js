@@ -11,7 +11,7 @@ const SideBar = ({sort}) => {
     >
       <div className="position-sticky pt-3">
         <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Sort By Alphabet</span>
+          <span>Sort By</span>
           <a className="link-secondary" href="#" aria-label="Add a new report">
             <span data-feather="plus-circle" />
           </a>
@@ -31,19 +31,44 @@ const SideBar = ({sort}) => {
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("accending")}
+                  onClick={() => handleDropdownClick("ascending")}
                 >
-                  Alphabet (accending)
+                  Alphabet (ascending)
                 </li>
                 <li
                   class="dropdown-item"
-                  onClick={() => handleDropdownClick("deccending")}
+                  onClick={() => handleDropdownClick("descending")}
                 >
-                  Alphabet (deccending)
+                  Alphabet (descending)
+                </li>
+                <li
+                  class="dropdown-item"
+                  onClick={() => handleDropdownClick("pop-ascending")}
+                >
+                  Population (ascending)
+                </li>
+                <li
+                  class="dropdown-item"
+                  onClick={() => handleDropdownClick("pop-descending")}
+                >
+                  Population (descending)
+                </li>
+                <li
+                  class="dropdown-item"
+                  onClick={() => handleDropdownClick("area-ascending")}
+                >
+                  Area (ascending)
+                </li>
+                <li
+                  class="dropdown-item"
+                  onClick={() => handleDropdownClick("area-descending")}
+                >
+                  Area (descending)
                 </li>
               </ul>
             </div>
           </li>
+
           <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>Sort By Region</span>
             <a

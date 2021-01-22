@@ -11,14 +11,14 @@
   font-size: 0.7rem;
 }
 
-.course-card {
+.country-card {
   width: 175px;
   height: 260px;
   cursor: pointer;
   margin: 0 20px 20px 0;
   box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.17);
 }
-.course-card:hover {
+.country-card:hover {
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.37);
 }
 .card-item {
