@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Country from "./Country/Country";
 import Main from "./Main/Main";
 
-export default function Routes() {
+export default function App() {
   return (
     <Router>
       <Switch>
